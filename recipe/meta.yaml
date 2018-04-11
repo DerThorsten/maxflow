@@ -1,0 +1,43 @@
+{% set name = "maxflow" %}
+{% set version = "0.3.2" %}
+#{% set sha256 = "b2ada6f86faf5c9032e8b1a7b8cc0dff68a229e90ad80b366f5564fec03caa17" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../
+  #fn: maxflow-{{ version }}.tar.gz
+  #url: https://github.com/DerThorsten/maxflow/archive/{{ version }}.tar.gz
+  #sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - toolchain
+    - cmake
+
+test:
+  commands:
+    - test -d ${PREFIX}/include/maxflow  # [unix]
+    - test -f ${PREFIX}/include/maxflow/graph.h  # [unix]
+    - test -f ${PREFIX}/include/maxflow/block.h  # [unix]
+    - if exist %LIBRARY_PREFIX%\include\maxflow\graph.h (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\include\maxflow\block.h (exit 0) else (exit 1)  # [win]
+
+about:
+  home: https://github.com/DerThorsten/maxflow
+  license: GPL
+  license_family: GPL
+  license_file: GPL.TXT
+  summary: 'maxflow'
+  description: 'maxflow'
+  documentation_url:  https://github.com/DerThorsten/maxflow
+  dev_url: https://github.com/DerThorsten/maxflow
+
+extra:
+  recipe-maintainers:
+    - DerThorsten
