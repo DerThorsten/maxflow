@@ -23,22 +23,24 @@ set(${PROJECT_NAME}_VERSION
 
 
 
-SET( ${PROJECT_NAME}_SRC_FILES 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/graph.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/maxflow.cpp
-)
+# SET( ${PROJECT_NAME}_SRC_FILES 
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/graph.cpp
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/maxflow.cpp
+# )
 
 
 
 file(GLOB ${PROJECT_NAME}_HEADERS 
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/maxflow/*.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/maxflow/block.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/maxflow/graph.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/maxflow/maxflow.h
   #EXCLUDE matlab
 )
 
 
 
-include_directories(include)
-ADD_LIBRARY(maxflow SHARED ${${PROJECT_NAME}_SRC_FILES})
+# include_directories(include)
+# ADD_LIBRARY(maxflow SHARED ${${PROJECT_NAME}_SRC_FILES})
 
 
 include(GNUInstallDirs)

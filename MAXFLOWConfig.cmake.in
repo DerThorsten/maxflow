@@ -3,13 +3,13 @@
 #
 #   MAXFLOW_FOUND - true if QPBO found on the system
 #   MAXFLOW_INCLUDE_DIRS - the directory containing MAXFLOW headers
-#   MAXFLOW_LIBRARY - the maxflow library
+#   MAXFLOW_LIBRARY - empty
 
 @PACKAGE_INIT@
-find_library(LIBMAXFLOW NAMES maxflow libmaxflow
-             HINTS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/" )
+# find_library(LIBMAXFLOW NAMES maxflow libmaxflow
+#              HINTS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@/" )
 
 set(PN MAXFLOW)
 set_and_check(${PN}_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
-set_and_check(${PN}_LIBRARY      ${LIBMAXFLOW})
+set(${PN}_LIBRARY     "")
 check_required_components(${PN})
