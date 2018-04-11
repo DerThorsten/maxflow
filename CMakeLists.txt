@@ -47,8 +47,8 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 
-install(TARGETS maxflow 
-    DESTINATION ${CMAKE_INSTALL_LIBDIR})
+# install(TARGETS maxflow 
+#     DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(FILES ${${PROJECT_NAME}_HEADERS}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/maxflow)
